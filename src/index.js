@@ -15,7 +15,7 @@ store.subscribe(()=>{
     console.log('Store is changed ', store.getState());
 });
 
-store.dispatch(incrementNumber(store.getState));
+// store.dispatch(incrementNumber(store.getState));
 
 ReactDOM.render(
     <Provider store={store}>
