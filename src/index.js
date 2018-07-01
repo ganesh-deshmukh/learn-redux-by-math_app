@@ -3,5 +3,23 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+
+import {incrementNumber} from './actions/index';
+import rootReducer from './reducers';
+
+const store = createStore(rootReducer);
+
+store.subscribe(()=>{
+    console.log('Store is changed ', store.getState());
+});
+
+store.dispatch(incrementNumber(store.getState));
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById('root'));
 registerServiceWorker();
