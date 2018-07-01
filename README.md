@@ -1,1 +1,0 @@
-# learn-redux-by-math_app
